@@ -3,28 +3,83 @@ import java.util.Scanner;
 public class TestMaximum {
     static Scanner input=new Scanner(System.in);
 
+    public static void findMaximumInteger(){
+        System.out.println("Enter the Size of Input : ");
+        int size=input.nextInt();
+        System.out.println("Enter the elements of Array(Integer) : ");
+        Integer []arr=new Integer[size];
+        for(int i=0;i<size;i++){
+            arr[i]=input.nextInt();
+        }
+
+        Generic<Integer> obj=new Generic<>(size,arr);
+        System.out.println("Maximum Integer : "+obj.testMaximumInternally());
+
+    }
+
+    public static void findMaximumFloat(){
+        System.out.println("Enter the Size of Input : ");
+        int size=input.nextInt();
+        System.out.println("Enter the elements of Array(Floating) : ");
+        Float []arr=new Float[size];
+        for(int i=0;i<size;i++){
+            arr[i]=input.nextFloat();
+        }
+
+        Generic<Float> obj=new Generic<>(size,arr);
+        System.out.println("Maximum Flaoting Number : "+obj.testMaximumInternally());
+
+    }
+
+    public static void findMaximumString(){
+        System.out.println("Enter the Size of Input : ");
+        int size=input.nextInt();
+        System.out.println("Enter the elements of Array : ");
+        String []arr=new String[size];
+        for(int i=0;i<size;i++){
+            arr[i]=input.next();
+        }
+
+        Generic<String> obj=new Generic<>(size,arr);
+        System.out.println("Largest String : " + obj.testMaximumInternally());
+
+    }
     public static void main(String[] args) {
-        System.out.println("Maximum among 3 Integer is "+findMaximum(32,1,9)+" at 1st position");
-        System.out.println("Maximum among 3 Integer is "+findMaximum(3,1110,9)+" at 2nd position");
-        System.out.println("Maximum among 3 Integer is "+findMaximum(3,1,93)+" at 3rd position");
-        System.out.println();
-        System.out.println("Maximum among 3 float is "+findMaximum(13.2F,4.67F,.89F)+" at 1st position");
-        System.out.println("Maximum among 3 float is "+findMaximum(3.2F,4.67F,.89F)+" at 2nd position");
-        System.out.println("Maximum among 3 float is "+findMaximum(3.2F,4.67F,23.89F)+" at 3rd position");
-        System.out.println();
-        System.out.println("Maximum among 3 String is "+findMaximum("Peach","Apple","Banana")+" at 1st position");
-        System.out.println("Maximum among 3 String is "+findMaximum("Banana","Peach","Apple")+" at 2nd position");
-        System.out.println("Maximum among 3 String is "+findMaximum("Apple","Banana","Peach")+" at 3rd position");
+
+        System.out.println("Type the data type for which u want to find Maximum: ");
+        System.out.println("Type 1 for Integer");
+        System.out.println("Type 2 for Float");
+        System.out.println("Type 3 for String");
+
+        Boolean flag=true;
+
+        while(flag){
+            int val=input.nextInt();
+
+            switch (val){
+                case 1:{
+                    findMaximumInteger();
+                    break;
+                }
+
+                case 2:{
+                   findMaximumFloat();
+                   break;
+                }
+
+                case 3:{
+                   findMaximumString();
+                   break;
+                }
+
+                default:{
+                    flag=false;
+                    break;
+                }
+            }
+
+        }
+
     }
-
-    private static <T extends Comparable<T>> T findMaximum(T first,T second,T third){
-        T maximum=first;
-
-        if(maximum.compareTo(second)<0) maximum=second;
-        if(maximum.compareTo(third)<0) maximum=third;
-
-        return maximum;
-    }
-
 }
 
