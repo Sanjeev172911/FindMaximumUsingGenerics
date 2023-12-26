@@ -11,6 +11,19 @@ public class TestMaximum {
         System.out.println("Maximum among 3 float is "+findMaximumFloat(13.2F,4.67F,.89F)+" at 1st position");
         System.out.println("Maximum among 3 float is "+findMaximumFloat(3.2F,4.67F,.89F)+" at 2nd position");
         System.out.println("Maximum among 3 float is "+findMaximumFloat(3.2F,4.67F,23.89F)+" at 3rd position");
+        System.out.println();
+        System.out.println("Maximum among 3 String is "+findMaximumString("xyz","abc","sanjeev")+" at 1st position");
+        System.out.println("Maximum among 3 String is "+findMaximumString("abc","pqrts","mno")+" at 2nd position");
+        System.out.println("Maximum among 3 String is "+findMaximumString("a","ab","abc")+" at 3rd position");
+    }
+
+    private static String findMaximumString(String first, String second, String third) {
+        String maximum=first;
+
+        if(maximum.compareTo(second)<0)maximum=second;
+        if(maximum.compareTo(third)<0) maximum=third;
+
+        return maximum;
     }
 
     private static Float findMaximumFloat(Float v, Float v1, Float v2) {
